@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils';
 import { 
   LayoutDashboard, 
   Users, 
-  Meter, 
+  Gauge, 
   Receipt, 
   AlertTriangle, 
   Settings, 
@@ -28,7 +28,7 @@ const Sidebar = ({ isOpen, setIsOpen }: SidebarProps) => {
   const navItems = [
     { name: 'Dashboard', path: '/', icon: <LayoutDashboard className="h-5 w-5" /> },
     { name: 'Customers', path: '/customers', icon: <Users className="h-5 w-5" /> },
-    { name: 'Meter Readings', path: '/meter-readings', icon: <Meter className="h-5 w-5" /> },
+    { name: 'Meter Readings', path: '/meter-readings', icon: <Gauge className="h-5 w-5" /> },
     { name: 'Billing', path: '/billing', icon: <Receipt className="h-5 w-5" /> },
     { name: 'Credit Control', path: '/credit-control', icon: <AlertTriangle className="h-5 w-5" /> },
     { name: 'Settings', path: '/settings', icon: <Settings className="h-5 w-5" /> },
