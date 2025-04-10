@@ -12,7 +12,14 @@ import {
   ChevronRight,
   Droplets,
   Home,
-  Building
+  Building,
+  FileText,
+  FilePlus,
+  UserRound,
+  MessageSquare,
+  Send,
+  Mail,
+  CalendarText
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
@@ -32,6 +39,17 @@ const Sidebar = ({ isOpen, setIsOpen }: SidebarProps) => {
     { name: 'Billing', path: '/billing', icon: <Receipt className="h-5 w-5" /> },
     { name: 'Credit Control', path: '/credit-control', icon: <AlertTriangle className="h-5 w-5" /> },
     { name: 'Settings', path: '/settings', icon: <Settings className="h-5 w-5" /> },
+  ];
+
+  const financialItems = [
+    { name: 'Financial Journals', path: '/financial-journals', icon: <FileText className="h-5 w-5" /> },
+    { name: 'New Applications', path: '/new-applications', icon: <FilePlus className="h-5 w-5" /> },
+    { name: 'Ownership Changes', path: '/ownership-changes', icon: <UserRound className="h-5 w-5" /> },
+    { name: 'Meter Replacements', path: '/meter-replacements', icon: <Gauge className="h-5 w-5" /> },
+    { name: 'Customer Complaints', path: '/customer-complaints', icon: <MessageSquare className="h-5 w-5" /> },
+    { name: 'SMS Notifications', path: '/sms-notifications', icon: <Send className="h-5 w-5" /> },
+    { name: 'Invoices', path: '/invoices', icon: <Receipt className="h-5 w-5" /> },
+    { name: 'Statements', path: '/statements', icon: <CalendarText className="h-5 w-5" /> },
   ];
 
   return (
@@ -62,7 +80,7 @@ const Sidebar = ({ isOpen, setIsOpen }: SidebarProps) => {
         </Button>
       </div>
 
-      <div className="py-4 px-2">
+      <div className="py-4 px-2 overflow-y-auto">
         <div className={cn("space-y-1", isOpen ? "px-2" : "")}>
           {navItems.map((item) => {
             const isActive = location.pathname === item.path;
@@ -107,36 +125,63 @@ const Sidebar = ({ isOpen, setIsOpen }: SidebarProps) => {
         </div>
 
         {isOpen && (
-          <div className="mt-6 px-4">
-            <div className="space-y-2">
-              <div className="text-xs font-semibold text-sidebar-foreground/60">
-                BILLING GROUPS
-              </div>
-              <div className="space-y-1">
-                <Link 
-                  to="/billing-groups/mbombela"
-                  className="flex items-center px-3 py-2 text-sm rounded-md text-sidebar-foreground hover:bg-sidebar-accent/50"
-                >
-                  <Building className="h-4 w-4 mr-2" />
-                  Mbombela
-                </Link>
-                <Link 
-                  to="/billing-groups/nelspruit"
-                  className="flex items-center px-3 py-2 text-sm rounded-md text-sidebar-foreground hover:bg-sidebar-accent/50"
-                >
-                  <Home className="h-4 w-4 mr-2" />
-                  Nelspruit
-                </Link>
-                <Link 
-                  to="/billing-groups/white-river"
-                  className="flex items-center px-3 py-2 text-sm rounded-md text-sidebar-foreground hover:bg-sidebar-accent/50"
-                >
-                  <Home className="h-4 w-4 mr-2" />
-                  White River
-                </Link>
+          <>
+            <div className="mt-6 px-4">
+              <div className="space-y-2">
+                <div className="text-xs font-semibold text-sidebar-foreground/60">
+                  BILLING GROUPS
+                </div>
+                <div className="space-y-1">
+                  <Link 
+                    to="/billing-groups/mbombela"
+                    className="flex items-center px-3 py-2 text-sm rounded-md text-sidebar-foreground hover:bg-sidebar-accent/50"
+                  >
+                    <Building className="h-4 w-4 mr-2" />
+                    Mbombela
+                  </Link>
+                  <Link 
+                    to="/billing-groups/nelspruit"
+                    className="flex items-center px-3 py-2 text-sm rounded-md text-sidebar-foreground hover:bg-sidebar-accent/50"
+                  >
+                    <Home className="h-4 w-4 mr-2" />
+                    Nelspruit
+                  </Link>
+                  <Link 
+                    to="/billing-groups/white-river"
+                    className="flex items-center px-3 py-2 text-sm rounded-md text-sidebar-foreground hover:bg-sidebar-accent/50"
+                  >
+                    <Home className="h-4 w-4 mr-2" />
+                    White River
+                  </Link>
+                </div>
               </div>
             </div>
-          </div>
+
+            <div className="mt-6 px-4">
+              <div className="space-y-2">
+                <div className="text-xs font-semibold text-sidebar-foreground/60">
+                  FINANCIAL & CUSTOMER MANAGEMENT
+                </div>
+                <div className="space-y-1">
+                  {financialItems.map((item) => (
+                    <Link 
+                      key={item.path}
+                      to={item.path}
+                      className={cn(
+                        "flex items-center px-3 py-2 text-sm rounded-md",
+                        location.pathname === item.path
+                          ? "bg-sidebar-accent text-sidebar-accent-foreground font-medium"
+                          : "text-sidebar-foreground hover:bg-sidebar-accent/50"
+                      )}
+                    >
+                      {item.icon}
+                      <span className="ml-2">{item.name}</span>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </>
         )}
       </div>
     </aside>
