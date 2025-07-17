@@ -10,6 +10,8 @@ import OwnershipChangesPage from "./pages/OwnershipChangesPage";
 import WorkOrdersPage from "./pages/WorkOrdersPage";
 import MaintenanceSchedulePage from "./pages/MaintenanceSchedulePage";
 import EquipmentManagementPage from "./pages/EquipmentManagementPage";
+import CustomersPage from "./pages/CustomersPage";
+import BulkOperationsPage from "./pages/BulkOperationsPage";
 
 const queryClient = new QueryClient();
 
@@ -21,10 +23,12 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/customers" element={<CustomersPage />} />
           <Route path="/ownership-changes" element={<OwnershipChangesPage />} />
           <Route path="/work-orders" element={<WorkOrdersPage />} />
           <Route path="/maintenance-schedule" element={<MaintenanceSchedulePage />} />
           <Route path="/equipment-management" element={<EquipmentManagementPage />} />
+          <Route path="/bulk-operations" element={<BulkOperationsPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

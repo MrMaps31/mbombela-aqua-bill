@@ -20,6 +20,7 @@ import {
   Settings,
   Calendar,
   ClipboardList,
+  Database,
 } from "lucide-react";
 
 const navigation = [
@@ -36,6 +37,7 @@ const navigation = [
   { name: "Work Orders", href: "/work-orders", icon: ClipboardList },
   { name: "Maintenance Schedule", href: "/maintenance-schedule", icon: Calendar },
   { name: "Equipment Management", href: "/equipment-management", icon: Settings },
+  { name: "Bulk Operations", href: "/bulk-operations", icon: Database },
 ];
 
 interface SidebarProps {

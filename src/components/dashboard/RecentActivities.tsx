@@ -7,7 +7,7 @@ const RecentActivities = () => {
     {
       id: 1,
       type: "payment",
-      customer: "John Doe",
+      customer: "Customer #087542",
       description: "Payment received",
       amount: "R 1,250.00",
       time: "2 hours ago",
@@ -16,8 +16,8 @@ const RecentActivities = () => {
     {
       id: 2,
       type: "complaint",
-      customer: "Sarah Wilson",
-      description: "Low water pressure complaint",
+      customer: "Customer #098765",
+      description: "Low water pressure complaint - Sector 7",
       amount: null,
       time: "4 hours ago",
       status: "pending",
@@ -25,8 +25,8 @@ const RecentActivities = () => {
     {
       id: 3,
       type: "application",
-      customer: "Mike Johnson",
-      description: "New connection application",
+      customer: "Customer #087432",
+      description: "New commercial connection application",
       amount: null,
       time: "6 hours ago",
       status: "processing",
@@ -34,11 +34,29 @@ const RecentActivities = () => {
     {
       id: 4,
       type: "ownership",
-      customer: "Lisa Brown",
-      description: "Ownership transfer request",
+      customer: "Customer #056789",
+      description: "Ownership transfer request completed",
       amount: null,
       time: "8 hours ago",
       status: "approved",
+    },
+    {
+      id: 5,
+      type: "maintenance",
+      customer: "System Admin",
+      description: "Pump Station A maintenance completed",
+      amount: null,
+      time: "10 hours ago",
+      status: "completed",
+    },
+    {
+      id: 6,
+      type: "bulk_payment",
+      customer: "Bulk Import",
+      description: "247 payments processed via batch import",
+      amount: "R 234,567.00",
+      time: "12 hours ago",
+      status: "completed",
     },
   ];
 
@@ -71,7 +89,8 @@ const RecentActivities = () => {
             <div key={activity.id} className="flex items-center space-x-4">
               <Avatar className="h-8 w-8">
                 <AvatarFallback>
-                  {activity.customer.split(" ").map(n => n[0]).join("")}
+                  {activity.customer.includes('#') ? activity.customer.split('#')[1].slice(0, 2) : 
+                   activity.customer.split(" ").map(n => n[0]).join("")}
                 </AvatarFallback>
               </Avatar>
               <div className="flex-1 space-y-1">
