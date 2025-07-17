@@ -17,6 +17,9 @@ import {
   Droplets,
   ChevronLeft,
   ChevronRight,
+  Settings,
+  Calendar,
+  ClipboardList,
 } from "lucide-react";
 
 const navigation = [
@@ -30,6 +33,9 @@ const navigation = [
   { name: "SMS Notifications", href: "/sms", icon: Phone },
   { name: "Invoices", href: "/invoices", icon: Receipt },
   { name: "Statements", href: "/statements", icon: FileSpreadsheet },
+  { name: "Work Orders", href: "/work-orders", icon: ClipboardList },
+  { name: "Maintenance Schedule", href: "/maintenance-schedule", icon: Calendar },
+  { name: "Equipment Management", href: "/equipment-management", icon: Settings },
 ];
 
 interface SidebarProps {
