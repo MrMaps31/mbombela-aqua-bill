@@ -1,6 +1,6 @@
 
 import { UserRound, FileText, ClipboardCheck } from "lucide-react";
-import MainLayout from "@/components/layout/MainLayout";
+import DashboardLayout from "@/components/layout/DashboardLayout";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
@@ -52,7 +52,7 @@ const OwnershipChangesPage = () => {
   };
 
   return (
-    <MainLayout>
+    <DashboardLayout>
       <div className="flex items-center justify-between mb-6">
         <div>
           <h1 className="text-2xl font-bold tracking-tight">Ownership Changes</h1>
@@ -153,7 +153,7 @@ const OwnershipChangesPage = () => {
           </Table>
         </CardContent>
       </Card>
-    </MainLayout>
+    </DashboardLayout>
   );
 };
 
